@@ -1,4 +1,4 @@
-# pylint: skip-file
+
 from itertools import permutations
 import os
 
@@ -27,13 +27,8 @@ proportions = [
 perms = [p for i in proportions for p in set(permutations(i))]
 to_append = [0, 0]
 
-# train_traders = [1, 1, 1, 1, 0]
-# combos = set(list(permutations(train_traders)))
-# session_configs = [list(p) for p in list(product(combos, perms))]
-# print(session_configs)
-
 # open csv file to write
-output_dir = './deep_trader_tbse/markets'
+output_dir = './simulator/markets'
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
@@ -49,12 +44,3 @@ for i in range(num_sections):
                 f"{perm[0]},{perm[1]},{perm[2]},{perm[3]},{perm[4]},{to_append[0]},{to_append[1]}\n"
             )
 
-# with open("markets.csv", "w") as f:
-#     # write each element of perms to csv file
-#     for perm in perms:
-#         f.write(
-#             f"{perm[0]},{perm[1]},{perm[2]},{perm[3]},{perm[4]},{to_append[0]},{to_append[1]}\n"
-#         )
-
-
-# print(perms)
